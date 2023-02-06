@@ -20,7 +20,7 @@ Route::group(['namespace'=>'Post'],function (){
     Route::get('/posts/create', 'CreateController')->name('post.create');
     Route::post('/posts', 'StoreController')->name('post.store');
     Route::get('/posts/{post}', 'ShowController')->name('post.show');
-    Route::get('/posts/{post}/edit', 'EditController')->name('post.edit');
+    //Route::get('/posts/{post}/edit', 'EditController')->name('post.edit');
     Route::patch('/posts/{post}', 'UpdateController')->name('post.update');
     Route::delete('/posts/{post}', 'DeleteController')->name('post.delete');
 });
@@ -37,11 +37,12 @@ Route::group(['namespace'=>'Page'],function (){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+/*
 Route::group(['namespace'=>'Admin\Post', 'prefix'=>'admin'],function (){
-        Route::get('/posts/create', 'CreateController')->name('post.create');
+        Route::get('/posts/create', 'CreateController')->name('admin.create');
         Route::post('/posts', 'StoreController')->name('post.store');
         Route::get('/posts/{post}/edit', 'EditController')->name('post.edit');
         Route::patch('/posts/{post}', 'UpdateController')->name('post.update');
         Route::delete('/posts/{post}', 'DeleteController')->name('post.delete');
 });
+*/
