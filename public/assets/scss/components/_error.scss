@@ -1,24 +1,35 @@
-.error-page {
+.edica-404 {
     padding-top: 150px;
-    padding-bottom: 250px;
-
-    @media (max-width: 767px) {
-        padding-top: 70px;
-        padding-bottom: 110px;
-    }
-
-    .error-code {
-        font-size: 120px;
+    padding-bottom: 200px;
+    .page-title {
+        font-size: 90px;
         font-weight: $font-weight-bold;
-        line-height: 1;
-        margin-bottom: 15px;
+        line-height: 0.66;
+        color: $black;
+        margin-bottom: 20px;
     }
 
-    .error-description {
-        font-size: 25px;
-        font-weight: $font-weight-light;
-        line-height: 1.4;
-        margin-bottom: 0;
-        max-width: 665px;
+    .edica-404-subtitle {
+        font-size: 20px;
+        font-weight: $font-weight-bold;
+        line-height: 1.5;
+        color: #020202;
+        margin-bottom: 21px;
+    }
+
+    .edics-404-text {
+        font-size: 30px;
+        font-weight: $font-weight-bold;
+        line-height: 1.17;
+        color: $black;
+        margin-bottom: 38px;
+    }
+
+    .edica-404-link {
+        padding: 18px 45px;
+        color: $white;
+        border-radius: 4px;
+        font-size: 18px;
+        font-weight: $font-weight-bold;
     }
 }

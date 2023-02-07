@@ -3,7 +3,9 @@ $black: #000000;
 $white: #ffffff;
 
 $theme-colors: (
-    "primary":    #f7b500
+    "secondary": #d0c2af,
+    "success": #2e937a,
+    "warning":    #f29431
 );
 
 $enable-caret: false;
@@ -13,11 +15,11 @@ $enable-caret: false;
 // Settings for the `<body>` element.
 
 $body-bg:               $white;
-$body-color:            #100e0e;
+$body-color:            #000000;
 
 // Typography
 
-$font-family-base:      'Heebo', sans-serif;
+$font-family-base:      'DM Sans', sans-serif;
 
 $font-weight-light:     300;
 $font-weight-regular:   400;
@@ -26,7 +28,7 @@ $font-weight-bold:      700;
 
 $font-weight-base:      $font-weight-regular;
 
-$headings-font-weight:  $font-weight-medium;
+$headings-font-weight:  $font-weight-bold;
 
 // Navbar 
 $navbar-padding-y:                  1.25rem;
