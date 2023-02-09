@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Admin\Post;
+namespace App\Http\Requests\Admin\User;
 
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateRequest extends FormRequest
@@ -24,12 +25,9 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|string',
-            'content'=>'required|string',
-            'main_image'=>'nullable|file',
-            'category_id'=>'required|integer|exists:categories,id',
-            'tag_ids'=>'nullable|array',
-            'tag_ids.*'=>'nullable|integer|exists:tags,id',
+            'name'=>'required|string',
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.$this->route('user')->id],
+            'role'=>'required|string'
         ];
     }
 }

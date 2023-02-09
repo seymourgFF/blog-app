@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin\Post;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Post\BaseController;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class ShowController extends Controller
+class ShowController extends BaseController
 {
     public function __invoke(Post $post)
     {

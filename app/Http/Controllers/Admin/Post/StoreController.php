@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers\Admin\Post;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\Post\BaseController;
 use App\Http\Requests\Admin\Post\StoreRequest;
 use App\Models\Post;
+use Egulias\EmailValidator\Exception\ExpectingAT;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        //dd($data);
-        Post::firstOrCreate($data);
+        $this->service->store($data);
+
         return redirect()->route('admin.post.index');
     }
 }
