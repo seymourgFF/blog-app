@@ -15,13 +15,51 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 Route::group(['namespace' => 'Main'], function () {
-    Route::get('/', 'IndexController');
+    Route::get('/', 'IndexController')->name('main.index');
+});
+Route::group(['namespace' => 'Post','prefix'=>'posts'], function () {
+    Route::get('/', 'IndexController')->name('post.index');
+    Route::get('/{post}', 'ShowController')->name('post.show');
+
+    Route::group(['namespace'=>'Comment','prefix'=>'{post}/comments'],function(){
+        Route::post('/','StoreController')->name('post.comment.store');
+    });
+    Route::group(['namespace'=>'Like','prefix'=>'{post}/likes'],function(){
+        Route::post('/','StoreController')->name('post.likes.store');
+    });
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware'=>['auth','admin']], function () {
+Route::group(['namespace'=>'Category','prefix'=>'categories'],function(){
+    Route::get('/','IndexController')->name('category.index');
+
+    Route::group(['namespace'=>'Post','prefix'=>'{category}/posts'],function(){
+        Route::get('/','IndexController')->name('category.posts.index');
+    });
+});
+
+Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware'=>['auth', 'verified']], function () {
+
+
+
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', 'IndexController')->name('personal.index');
+    });
+    Route::group(['namespace' => 'Liked', 'prefix' => 'likes'], function () {
+        Route::get('/', 'IndexController')->name('personal.liked.index');
+        Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
+    });
+    Route::group(['namespace' => 'Comment' , 'prefix' => 'comments'], function () {
+        Route::get('/', 'IndexController')->name('personal.comment.index');
+        Route::get('/{comment}/edit', 'EditController')->name('personal.comment.edit');
+        Route::patch('/{comment}', 'UpdateController')->name('personal.comment.update');
+        Route::delete('/{comment}', 'DeleteController')->name('personal.comment.delete');
+    });
+});
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware'=>['auth','admin', 'verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('admin.index');
     });

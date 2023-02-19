@@ -10,7 +10,7 @@
                 <a href="{{route('admin.index')}}" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
-                        Dashboard
+                        Main
                     </p>
                 </a>
             </li>
@@ -24,7 +24,7 @@
             </li>
             <li class="nav-item">
                 <a href="{{route('admin.tag.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-th-list"></i>
+                    <i class="nav-icon fas fa-tags"></i>
                     <p>
                         Tags
                     </p>
@@ -32,7 +32,7 @@
             </li>
             <li class="nav-item">
                 <a href="{{route('admin.post.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-th-list"></i>
+                    <i class="nav-icon far fa-clipboard"></i>
                     <p>
                         Posts
                     </p>
@@ -40,7 +40,7 @@
             </li>
             <li class="nav-item">
                 <a href="{{route('admin.user.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-th-list"></i>
+                    <i class="nav-icon fas fa-users"></i>
                     <p>
                         Users
                     </p>

@@ -18,6 +18,15 @@ class PostServices
             if(isset($data['main_image'])){
                 $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
             }
+            if(isset($data['image1'])){
+                $data['image1'] = Storage::disk('public')->put('/images', $data['image1']);
+            }
+            if(isset($data['image2'])){
+                $data['image2'] = Storage::disk('public')->put('/images', $data['image2']);
+            }
+            if(isset($data['image3'])){
+                $data['image3'] = Storage::disk('public')->put('/images', $data['image3']);
+            }
             $post = Post::firstOrCreate($data);
             if(isset($tags_ids)){
                 $post->tags()->attach($tags_ids);
@@ -38,6 +47,15 @@ class PostServices
             }
             if(isset($data['main_image'])){
                 $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
+            }
+            if(isset($data['image1'])){
+                $data['image1'] = Storage::disk('public')->put('/images', $data['image1']);
+            }
+            if(isset($data['image2'])){
+                $data['image2'] = Storage::disk('public')->put('/images', $data['image2']);
+            }
+            if(isset($data['image3'])){
+                $data['image3'] = Storage::disk('public')->put('/images', $data['image3']);
             }
             $post->update($data);
             if(isset($tags_ids)){

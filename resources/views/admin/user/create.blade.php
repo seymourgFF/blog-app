@@ -10,8 +10,9 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.user.index')}}">Users</a></li>
+                            <li class="breadcrumb-item active">Create user</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -41,15 +42,6 @@
                                     <label for="exampleInputName">Email</label>
                                     <input type="email" class="form-control" id="exampleInputmail" name="email" placeholder="Enter email">
                                     @error('email')
-                                    <div class="danger text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="form-group">
-                                    <label for="exampleInputName">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputpas" name="password" placeholder="Enter password">
-                                    @error('password')
                                     <div class="danger text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

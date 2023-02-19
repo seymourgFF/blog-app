@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.head')
 
 @section('content')
+    <main style="min-height: 50vh;  padding-top: 50px;">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -44,4 +45,5 @@
         </div>
     </div>
 </div>
+    </main>
 @endsection

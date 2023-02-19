@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.head')
 
 @section('content')
+    <main style="min-height: 80vh;  padding-top: 50px;">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -52,7 +53,22 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('role') }}</label>
 
+                            <div class="col-md-6">
+                                <select class="form-control" id="exampleInputRol" name="role" >
+                                    <option value="1">User</option>
+                                    <option value="2">Organizer</option>
+                                    }
+                                </select>
+                                @error('role')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
@@ -74,4 +90,10 @@
         </div>
     </div>
 </div>
+    </main>
+    <style>
+        #exampleInputRol{
+            padding: 10px;
+        }
+    </style>
 @endsection

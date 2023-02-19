@@ -30,14 +30,19 @@ class StoreRequest extends FormRequest
             'category_id'=>'required|integer|exists:categories,id',
             'tag_ids'=>'nullable|array',
             'tag_ids.*'=>'nullable|integer|exists:tags,id',
+            'datestart'=>'required|string',
+            'map'=>'required|string',
+            'image1'=>'required|file',
+            'image2'=>'required|file',
+            'image3'=>'required|file',
         ];
     }
-    public function messages()
+    /*public function messages()
     {
         return [
           'title.required' => 'this field is required',
           'title.string' => 'string pls',
 
         ];
-    }
+    }*/
 }
