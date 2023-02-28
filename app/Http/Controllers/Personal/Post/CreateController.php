@@ -14,5 +14,6 @@ class CreateController extends BaseController
         $categories = Category::all();
         $tags = Tags::all();
         return view('personal.post.create', compact('categories','tags'));
+
     }
 }

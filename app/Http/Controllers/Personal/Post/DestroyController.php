@@ -10,7 +10,13 @@ class DestroyController extends BaseController
 {
     public function __invoke(Post $post)
     {
-        $post->delete();
-        return redirect()->route('personal.post.index');
+
+        $user = auth()->user()->id;
+        if($post->user_id == $user){
+            $post->delete();
+            return redirect()->route('personal.post.index');
+        }else{
+            return redirect()->route('personal.index');
+        }
     }
 }

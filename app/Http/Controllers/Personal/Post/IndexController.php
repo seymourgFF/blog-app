@@ -11,8 +11,8 @@ class IndexController extends BaseController
 {
     public function __invoke()
     {
-        $user = Auth::user();
-        $posts = Post::all();
+        $user = auth()->user()->id;
+        $posts = Post::all()->where('user_id','==',$user);
         return view('personal.post.index', compact('posts'));
     }
 }

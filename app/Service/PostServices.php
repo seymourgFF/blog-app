@@ -11,6 +11,7 @@ class PostServices
     public function store($data){
         try {
             DB::beginTransaction();
+            $data['user_id'] = auth()->user()->id;
             if(isset($data['tag_ids'])){
                 $tags_ids = $data['tag_ids'];
                 unset($data['tag_ids']);

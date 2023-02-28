@@ -16,11 +16,8 @@ class StoreController extends BaseController
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        $data['user_id'] = auth()->user()->id;
-        dd($data);
 
-        $data['post_id'] = $post->id;
-        UserPosts::create($data);
+        //dd($data);
         $this->service->store($data);
 
         return redirect()->route('personal.post.index');
