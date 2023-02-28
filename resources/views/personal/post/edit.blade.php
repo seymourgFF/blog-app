@@ -1,5 +1,5 @@
-@extends('admin.layouts.head')
-@section('admin-content')
+@extends('personal.layouts.head')
+@section('personal-content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -10,8 +10,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.post.index')}}">Posts</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('personal.index')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('personal.post.index')}}">Posts</a></li>
                             <li class="breadcrumb-item active">Edit post {{$post->Title}}</li>
                         </ol>
                     </div><!-- /.col -->
@@ -26,7 +26,7 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <form action="{{route('admin.post.update',$post->id)}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('personal.post.update',$post->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
                             <div class="card-footer">

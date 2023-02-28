@@ -42,7 +42,15 @@ Route::group(['namespace'=>'Category','prefix'=>'categories'],function(){
 
 Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware'=>['auth', 'verified']], function () {
 
-
+    Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
+        Route::get('/', 'IndexController')->name('personal.post.index');
+        Route::get('/create', 'CreateController')->name('personal.post.create');
+        Route::post('/', 'StoreController')->name('personal.post.store');
+        Route::get('/{post}', 'ShowController')->name('personal.post.show');
+        Route::get('/{post}/edit', 'EditController')->name('personal.post.edit');
+        Route::patch('/{post}', 'UpdateController')->name('personal.post.update');
+        Route::delete('/{post}', 'DestroyController')->name('personal.post.delete');
+    });
 
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('personal.index');

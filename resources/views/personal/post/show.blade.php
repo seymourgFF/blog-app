@@ -1,5 +1,5 @@
-@extends('admin.layouts.head')
-@section('admin-content')
+@extends('personal.layouts.head')
+@section('personal-content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -8,12 +8,12 @@
                     <div class="col-sm-6">
                         <h1 class="m-0 flex">{{$post->Title}}
                             <span class="ml-2 mr-2 ">
-                                <a href="{{route('admin.post.edit', $post->id)}}">
+                                <a href="{{route('personal.post.edit', $post->id)}}">
                                     <i class="fa fa-pen"></i>
                                 </a>
                             </span>
                             <span class="ml-2 mr-2 ">
-                            <form action="{{route('admin.post.delete', $post->id)}}" method="POST">
+                            <form action="{{route('personal.post.delete', $post->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="border-0 bg-transparent" type="submit">
@@ -25,8 +25,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{route('admin.post.index')}}">Posts</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('personal.index')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('personal.post.index')}}">Posts</a></li>
                             <li class="breadcrumb-item active">Post {{$post->Title}}</li>
                         </ol>
                     </div><!-- /.col -->

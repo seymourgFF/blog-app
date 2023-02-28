@@ -1,5 +1,5 @@
-@extends('admin.layouts.head')
-@section('admin-content')
+@extends('personal.layouts.head')
+@section('personal-content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -10,7 +10,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('personal.index')}}">Home</a></li>
                             <li class="breadcrumb-item active">Posts</li>
                         </ol>
                     </div><!-- /.col -->
@@ -25,7 +25,7 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-12">
-                        <a href="{{route('admin.post.create')}}" type="button"
+                        <a href="{{route('personal.post.create')}}" type="button"
                            class="mb-5 btn btn-block btn-primary">
                             Add new post
                         </a>
@@ -56,12 +56,12 @@
                                             <td>{{$post->id}}</td>
                                             <td>{{$post->Title}}</td>
                                             <td>{{$post->created_at}}</td>
-                                            <td><a href="{{route('admin.post.show', $post->id)}}"><i
+                                            <td><a href="{{route('personal.post.show', $post->id)}}"><i
                                                         class="far fa-eye"></i></a></td>
-                                            <td><a href="{{route('admin.post.edit', $post->id)}}"><i
+                                            <td><a href="{{route('personal.post.edit', $post->id)}}"><i
                                                         class="fa fa-pen"></i></a></td>
                                             <td>
-                                                <form action="{{route('admin.post.delete', $post->id)}}"
+                                                <form action="{{route('personal.post.delete', $post->id)}}"
                                                       method="POST">
                                                     @csrf
                                                     @method('DELETE')
