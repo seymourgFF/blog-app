@@ -14,14 +14,17 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="{{route('personal.post.index')}}" class="nav-link">
-                    <i class="nav-icon fas fa-clipboard"></i>
-                    <p>
-                        Posts
-                    </p>
-                </a>
-            </li>
+            @if((auth()->user()->role == 0 )OR(auth()->user()->role == 2 ))
+                <li class="nav-item">
+                    <a href="{{route('personal.post.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard"></i>
+                        <p>
+                            Posts
+                        </p>
+                    </a>
+                </li>
+            @endif
+
             <li class="nav-item">
                 <a href="{{route('personal.liked.index')}}" class="nav-link">
                     <i class="nav-icon far fa-heart"></i>

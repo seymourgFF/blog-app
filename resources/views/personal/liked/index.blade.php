@@ -38,8 +38,6 @@
                                         <th>Title</th>
                                         <th>Date</th>
                                         <th>Show</th>
-                                        <th>Edit</th>
-                                        <th>Trash</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -48,20 +46,9 @@
                                             <td>{{$post->id}}</td>
                                             <td>{{$post->Title}}</td>
                                             <td>{{$post->created_at}}</td>
-                                            <td><a href="{{route('admin.post.show', $post->id)}}"><i
+                                            <td><a href="{{route('post.show', $post->id)}}"><i
                                                         class="far fa-eye"></i></a></td>
-                                            <td><a href="{{route('admin.post.edit', $post->id)}}"><i
-                                                        class="fa fa-pen"></i></a></td>
-                                            <td>
-                                                <form action="{{route('personal.liked.delete', $post->id)}}"
-                                                      method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="border-0 bg-transparent" type="submit">
-                                                        <a class="text-danger"><i class="fa fa-trash" role="button"></i></a>
-                                                    </button>
-                                                </form>
-                                            </td>
+
                                         </tr>
                                     @endforeach
                                     </tbody>

@@ -56,7 +56,7 @@
                                             <td>{{$post->id}}</td>
                                             <td>{{$post->Title}}</td>
                                             <td>{{$post->created_at}}</td>
-                                            <td><a href="{{route('personal.post.show', $post->id)}}"><i
+                                            <td><a href="{{route('post.show', $post->id)}}"><i
                                                         class="far fa-eye"></i></a></td>
                                             <td><a href="{{route('personal.post.edit', $post->id)}}"><i
                                                         class="fa fa-pen"></i></a></td>

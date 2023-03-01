@@ -21,9 +21,14 @@
             </h1>
 
             <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">
-                <!--Written by Richard Searls•--> {{$post->category->Title}}
-                • Старт
-                мероприятия {{$post->DateAsCarbon->translatedFormat('d F Y')}} {{$post->DateAsCarbon->format('H:i')}}
+                {{$post->category->Title}}
+
+                • Старт мероприятия
+                {{$post->DateAsCarbon->translatedFormat('d F Y')}} {{$post->DateAsCarbon->format('H:i')}}
+
+                • Организатор
+                <a href="/">{{\App\Models\User::find($post->user_id)->name}}</a>
+
                 • {{$post->comments->count()}}
                 Комментария</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
@@ -91,7 +96,7 @@
                 <div class="col-lg-9 mx-auto">
                     @if($related_posts->isNotEmpty())
                         <section class="related-posts">
-                            <h2 class="section-title mb-4" data-aos="fade-up">Related Posts</h2>
+                            <h2 class="section-title mb-4" data-aos="fade-up">Похожие</h2>
                             <div class="row">
                                 @foreach($related_posts as $related_post)
                                     <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
@@ -130,7 +135,7 @@
                     @endif
                     @if($post->comments->isNotEmpty())
                         <section class="list-com" style="padding: 0px 0px 40px 0px;">
-                            <h2>list Comments {{$post->comments->count() }}</h2>
+                            <h2>Коментарии {{$post->comments->count() }}</h2>
                             <div class="card-footer card-comments">
                                 @foreach($post->comments as $comment)
                                     <div class="card-comment" style="padding: 15px 0px;">
@@ -151,12 +156,12 @@
                     @endif
                     @auth()
                         <section class="comment-section">
-                            <h2 class="section-title mb-5" data-aos="fade-up">Leave a Reply</h2>
+                            <h2 class="section-title mb-5" data-aos="fade-up">Оставить комметарий</h2>
                             <form action="{{route('post.comment.store',$post->id)}}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="form-group col-12" data-aos="fade-up">
-                                        <label for="comment" class="sr-only">Comment</label>
+                                        <label for="comment" class="sr-only">Комментарий</label>
                                         <textarea name="message" id="comment" class="form-control" placeholder="Comment"
                                                   rows="10"></textarea>
                                     </div>
@@ -164,7 +169,7 @@
 
                                 <div class="row">
                                     <div class="col-12" data-aos="fade-up">
-                                        <input type="submit" value="Send Message" class="btn btn-warning">
+                                        <input type="submit" value="Отправить" class="btn btn-warning">
                                     </div>
                                 </div>
                             </form>

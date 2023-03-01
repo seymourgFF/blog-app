@@ -98,6 +98,7 @@
 <script defer>
     $(document).ready(function() {
         $('#summernote').summernote({
+            height:500,
             toolbar: [
                 // [groupName, [list of button]]
                 ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -105,12 +106,14 @@
                 ['fontsize', ['fontsize']],
                 ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']]
+                ['height', ['200px']]
             ]
         });
     });
 </script>
 <script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script defer>
     $(function () {
         bsCustomFileInput.init();
@@ -118,6 +121,11 @@
     //Initialize Select2 Elements
     $('.select2').select2()
 
+    config = {
+        enableTime: true,
+        dateFormat: 'Y-m-d H:i',
+    }
+    flatpickr("input[name=datestart]", config);
 
 </script>
 </body>

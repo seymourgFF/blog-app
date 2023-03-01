@@ -24,10 +24,10 @@
             <div class="collapse navbar-collapse" id="edicaMainNav">
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{route('main.index')}}">Main <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{route('main.index')}}">Главная <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="{{route('category.index')}}" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+                        <a class="nav-link dropdown-toggle" href="{{route('category.index')}}" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Все районы</a>
                         <div class="dropdown-menu" aria-labelledby="blogDropdown">
 
                             @foreach(\App\Models\Category::all() as $category)
@@ -36,16 +36,22 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Contact</a>
+                        <a class="nav-link" href="{{route('filter.index')}}">Поиск</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('organizers.index')}}">Организаторы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Контакты</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mt-2 mt-lg-0">
                     <li class="nav-item">
                         @auth()
-                            <a class="nav-link" href="{{route('personal.index')}}">Account</a>
+                            <a class="nav-link" href="{{route('personal.index')}}">Профиль</a>
                         @endauth
                         @guest()
-                            <a class="nav-link" href="{{route('personal.index')}}">login</a>
+                            <a class="nav-link" href="{{route('personal.index')}}">Вход</a>
                         @endguest
 
                     </li>
@@ -123,10 +129,19 @@
 <script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/assets/vendors/aos/aos.js"></script>
 <script src="/assets/js/main.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     AOS.init({
         duration: 1000
     });
+</script>
+<script defer="defer">
+    config = {
+        enableTime: false,
+        dateFormat: 'Y-m-d',
+    }
+    flatpickr("input[name=datestart]", config);
 </script>
 </body>
 </html>

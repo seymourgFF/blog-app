@@ -37,6 +37,7 @@
                                         <th>Id</th>
                                         <th>Title</th>
                                         <th>Date</th>
+                                        <th>Show Post</th>
                                         <th>Edit</th>
                                         <th>Trash</th>
                                     </tr>
@@ -47,7 +48,8 @@
                                             <td>{{$comment->id}}</td>
                                             <td>{{$comment->message}}</td>
                                             <td>{{$comment->created_at}}</td>
-
+                                            <td><a href="{{route('post.show', $comment->post_id)}}"><i
+                                                        class="far fa-eye"></i></a></td>
                                             <td><a href="{{route('personal.comment.edit', $comment->id)}}"><i
                                                         class="fa fa-pen"></i></a></td>
                                             <td>
