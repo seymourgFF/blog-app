@@ -3,7 +3,6 @@
     <main class="blog">
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">Мероприятия</h1>
-
             <div class="row">
                 <div class="col-md-8">
                     <h4 class="widget-title">Топ мероприятий</h4>

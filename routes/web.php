@@ -58,7 +58,11 @@ Route::group(['namespace' => 'Personal', 'prefix' => 'personal', 'middleware'=>[
         Route::patch('/{post}', 'UpdateController')->name('personal.post.update');
         Route::delete('/{post}', 'DestroyController')->name('personal.post.delete');
     });
-
+    Route::group(['namespace' => 'Profile', 'prefix' => 'profile'], function () {
+        Route::get('/', 'ShowController')->name('personal.profile.show');
+        Route::get('/edit', 'EditController')->name('personal.profile.edit');
+        Route::patch('/{user}', 'UpdateController')->name('personal.profile.update');
+    });
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('personal.index');
     });

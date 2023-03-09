@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,7 +17,17 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $timeNow = Carbon::now()->toDateTimeString();
+        $timeNow = Carbon::parse($timeNow);
+        $schedule->call(function () use ($timeNow) {
+            $posts = Post::all();
+            foreach($posts as $post){
+                $datePost = Carbon::parse($post->datestart);
+                if($timeNow >= $datePost){
+                    $post->delete();
+                }
+            }
+        })->dailyAt('04:00');
     }
 
     /**

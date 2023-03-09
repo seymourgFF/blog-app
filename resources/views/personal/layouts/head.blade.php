@@ -128,5 +128,21 @@
     flatpickr("input[name=datestart]", config);
 
 </script>
+<script defer>
+    $(document).ready(function() {
+        $('#summernote_user').summernote({
+            height:200,
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['200px']]
+            ]
+        });
+    });
+</script>
 </body>
 </html>

@@ -23,7 +23,7 @@ class OrganizersController extends Controller
     }
     public function show(User $user)
     {
-
-        return view('organizers.show', compact('user'));
+        $posts_users = Post::all()->where('user_id',$user->id);
+        return view('organizers.show', compact('user', 'posts_users'));
     }
 }

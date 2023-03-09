@@ -27,7 +27,7 @@
                 {{$post->DateAsCarbon->translatedFormat('d F Y')}} {{$post->DateAsCarbon->format('H:i')}}
 
                 • Организатор
-                <a href="/">{{\App\Models\User::find($post->user_id)->name}}</a>
+                <a href="{{route('organizers.show',\App\Models\User::find($post->user_id)->id)}}">{{\App\Models\User::find($post->user_id)->name}}</a>
 
                 • {{$post->comments->count()}}
                 Комментария</p>
