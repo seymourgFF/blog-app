@@ -63,9 +63,23 @@
                                     <ul class="list-group list-group-unbordered mb-3">
                                         <li class="list-group-item">
                                             <b>Описание</b>
-                                            <a class="float-right">
+                                            <a >
                                                 <textarea id="summernote_user" name="description" >{{$user->description}}</textarea>
                                                 @error('description')
+                                                <div class="danger text-danger">{{ $message }}</div>
+                                                @enderror
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Номер телефона</b>
+                                            <a>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                    </div>
+                                                    <input type="number" id="phone" name="phone" value="{{$user->phone}}" class="form-control" >
+                                                </div>
+                                                @error('phone')
                                                 <div class="danger text-danger">{{ $message }}</div>
                                                 @enderror
                                             </a>

@@ -26,7 +26,8 @@ class UpdateRequest extends FormRequest
         return [
             'name'=>'required|string',
             'description'=>'string|nullable',
-            'main_image'=>'file|nullable'
+            'main_image'=>'file|nullable',
+            'phone'=>'string|nullable'
         ];
     }
 }

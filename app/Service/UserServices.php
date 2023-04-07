@@ -16,6 +16,7 @@ class UserServices
             $user =Auth::user();
             $user->name = $data['name'];
             $user->description = $data['description'];
+            $user->phone = $data['phone'];
             if(isset($data['main_image'])){
                 $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
                 $user->main_image = $data['main_image'];

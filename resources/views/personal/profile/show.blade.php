@@ -58,6 +58,14 @@
                                             <a class="float-right">{{$user->description}}</a>
                                         @endif
                                     </li>
+                                    <li class="list-group-item">
+                                        <b>Телефон</b>
+                                        @if(empty($user->phone))
+                                            <a class="float-right">Пусто</a>
+                                        @else
+                                            <a class="float-right">{{$user->phone}}</a>
+                                        @endif
+                                    </li>
                                 </ul>
 
                             </div>
